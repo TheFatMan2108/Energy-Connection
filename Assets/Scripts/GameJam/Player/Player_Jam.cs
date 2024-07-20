@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player_Jam : MonoBehaviour,IConnection
 {
     public Rigidbody2D rb { get; private set; }
-    
     public Animator anim { get; private set; }
     public float speed = 10;
     public float jumpForce = 10;
@@ -25,19 +24,15 @@ public class Player_Jam : MonoBehaviour,IConnection
         rb = GetComponent<Rigidbody2D>();
         fixedJoint = GetComponent<FixedJoint2D>();
         anim = GetComponent<Animator>();
-        fixedJoint.connectedBody = rb;
     }
     void Start()
     {
+        fixedJoint.enabled = false;
         stateMachine.Initialize(idleJamState);
     }
     void Update()
     {
         stateMachine.currentState.Update();
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AudioManager.instance.PlaySFX(0, null);
-        }
         if (Input.GetKeyUp(KeyCode.E)&&isConnect)
         {
             Disconnect();
@@ -46,16 +41,17 @@ public class Player_Jam : MonoBehaviour,IConnection
     }
     public void Connect(GameObject any)
     {
+        fixedJoint.enabled = true;
         fixedJoint.connectedBody = any.GetComponent<Rigidbody2D>();
         isConnect = true;
     }
 
     public void Disconnect()
     {
-        fixedJoint.connectedBody = rb;
+        fixedJoint.enabled = false;
         isConnect = false;
     }
     
-
+    
     
 }

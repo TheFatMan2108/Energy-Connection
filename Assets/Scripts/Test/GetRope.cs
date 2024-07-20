@@ -21,8 +21,10 @@ public class GetRope : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 player.Connect(gameObject);
+                AudioManager.instance.PlaySFX(0, null);
             }
         }
     }
-    public Transform IsRope() => Physics2D.CircleCast(transform.position, distance, transform.position, distance,lmPlayer)? Physics2D.CircleCast(transform.position, distance, transform.position, distance, lmPlayer).transform:null;
+    public Transform IsRope() => Physics2D.CircleCast(transform.position, distance, transform.position, distance,lmPlayer)?
+        Physics2D.CircleCast(transform.position, distance, transform.position, distance, lmPlayer).transform:null;
 }

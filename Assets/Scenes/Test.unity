@@ -735,7 +735,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 6.9730005, y: 0}
+  m_ConnectedAnchor: {x: 6.9729996, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06673d57efa94b54599bcbddd169dca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxMinimumDistance: 0
+  sfxMinimumDistance: 1
   sfx:
   - {fileID: 1707183003}
   - {fileID: 168094765}
@@ -5150,7 +5150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLight: {r: 1, g: 0.8800796, b: 0, a: 1}
-  offLight: {r: 1, g: 0.98399556, b: 0.80566037, a: 1}
+  offLight: {r: 0.5924529, g: 0.5924529, b: 0.5924529, a: 1}
 --- !u!212 &650416272
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5270,7 +5270,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 4.6379995, y: 0}
+  m_ConnectedAnchor: {x: 4.6380005, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -7414,7 +7414,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 5.5810003, y: 0}
+  m_ConnectedAnchor: {x: 5.5809994, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -8997,7 +8997,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 3.2699995, y: 0}
+  m_ConnectedAnchor: {x: 3.2700005, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -11667,7 +11667,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 2.8289995, y: 0}
+  m_ConnectedAnchor: {x: 2.8290005, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -12907,7 +12907,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 6.0560007, y: 0}
+  m_ConnectedAnchor: {x: 6.0559998, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -13039,7 +13039,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 2.3480005, y: 0}
+  m_ConnectedAnchor: {x: 2.3479996, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -13639,7 +13639,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 5.1239996, y: 0}
+  m_ConnectedAnchor: {x: 5.1240005, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -15925,7 +15925,7 @@ Transform:
   m_GameObject: {fileID: 1820222390}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0834, y: 0.7706, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7706, z: 0}
   m_LocalScale: {x: 0.9932735, y: 0.49463686, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15971,7 +15971,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -18861,8 +18861,8 @@ Tilemap:
   - first: {x: 6, y: 0, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -18870,11 +18870,15 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 75612eaef5bc63c43ab6d000f1322ab9, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: c83213f18fe1fff47918c9000888002f, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 0364cf01a483b54438f6938d732ef1c3, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 9ec74f2500b8ce140b277d1ed1111f79, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 2
     m_Data:
@@ -18947,7 +18951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6078035196807175498, guid: 8a4ef2152b46139428a2b25d0c0f73cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.05
+      value: 6.83
       objectReference: {fileID: 0}
     - target: {fileID: 6078035196807175498, guid: 8a4ef2152b46139428a2b25d0c0f73cd, type: 3}
       propertyPath: m_LocalPosition.y

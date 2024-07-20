@@ -11,7 +11,7 @@ public class PowerPoles : MonoBehaviour,IConnection
     private void Start()
     {
         Joint2D = GetComponent<HingeJoint2D>();
-        Joint2D.connectedBody = GetComponent<Rigidbody2D>();
+        Joint2D.enabled = false;
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = offLight;
     }
 
@@ -26,6 +26,7 @@ public class PowerPoles : MonoBehaviour,IConnection
 
     public void Connect(GameObject any)
     {
+        Joint2D.enabled = true;
         Joint2D.connectedBody = any.GetComponent<Rigidbody2D>();
         // thong bao win o day
         AudioManager.instance.PlaySFX(100, null);
@@ -34,6 +35,6 @@ public class PowerPoles : MonoBehaviour,IConnection
 
     public void Disconnect()
     {
-        
+        Joint2D.enabled = false;
     }
 }
