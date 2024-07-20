@@ -16,8 +16,8 @@ public class SetHingeJoint : MonoBehaviour
         }
         
         joints[joints.Count - 1].gameObject.AddComponent<EndRope>();
-        joints[joints.Count - 1].gameObject.GetComponentInChildren<SpriteRenderer>().sprite = endRope;
         joints[1].gameObject.GetComponentInChildren<SpriteRenderer>().sprite = startRope;
+        joints[joints.Count - 1].gameObject.GetComponentInChildren<SpriteRenderer>().sprite = endRope;
     }
 
     // Update is called once per frame
