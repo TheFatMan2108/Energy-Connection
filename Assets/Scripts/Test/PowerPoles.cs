@@ -6,10 +6,13 @@ using UnityEngine;
 public class PowerPoles : MonoBehaviour,IConnection
 {
     private HingeJoint2D Joint2D;
+    [SerializeField] private Color onLight, offLight;
+    
     private void Start()
     {
         Joint2D = GetComponent<HingeJoint2D>();
         Joint2D.connectedBody = GetComponent<Rigidbody2D>();
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = offLight;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,6 +26,8 @@ public class PowerPoles : MonoBehaviour,IConnection
     public void Connect(GameObject any)
     {
         Joint2D.connectedBody = any.GetComponent<Rigidbody2D>();
+        // thong bao win o day
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = onLight;
     }
 
     public void Disconnect()
