@@ -19,6 +19,7 @@ public class PowerPoles : MonoBehaviour,IConnection
     {
         if (collision.gameObject.TryGetComponent(out EndRope endRope))
         {
+            AudioManager.instance.PlaySFX(99, null);
             Connect(endRope.gameObject);
         }
     }
@@ -27,6 +28,7 @@ public class PowerPoles : MonoBehaviour,IConnection
     {
         Joint2D.connectedBody = any.GetComponent<Rigidbody2D>();
         // thong bao win o day
+        AudioManager.instance.PlaySFX(100, null);
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = onLight;
     }
 

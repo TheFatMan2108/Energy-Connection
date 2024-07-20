@@ -34,6 +34,10 @@ public class Player_Jam : MonoBehaviour,IConnection
     void Update()
     {
         stateMachine.currentState.Update();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            AudioManager.instance.PlaySFX(0, null);
+        }
         if (Input.GetKeyUp(KeyCode.E)&&isConnect)
         {
             Disconnect();
