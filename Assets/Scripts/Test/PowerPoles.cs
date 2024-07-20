@@ -31,7 +31,7 @@ public class PowerPoles : MonoBehaviour,IConnection
         Joint2D.connectedBody = any.GetComponent<Rigidbody2D>();
         Light2D.SetActive(true);
         // thong bao win o day
-        UIW.SetActive(true);
+        StartCoroutine(OnWinnner(1));
         AudioManager.instance.PlaySFX(100, null);
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = onLight;
     }
@@ -39,5 +39,10 @@ public class PowerPoles : MonoBehaviour,IConnection
     public void Disconnect()
     {
         Joint2D.enabled = false;
+    }
+    IEnumerator OnWinnner(float time)
+    {
+        yield return new WaitForSeconds(time);
+        UIW.SetActive(true);
     }
 }
