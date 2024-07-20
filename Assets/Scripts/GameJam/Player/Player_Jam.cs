@@ -42,6 +42,7 @@ public class Player_Jam : MonoBehaviour,IConnection
     public void Connect(GameObject any)
     {
         fixedJoint.enabled = true;
+        AudioManager.instance.PlaySFX(0, null);
         fixedJoint.connectedBody = any.GetComponent<Rigidbody2D>();
         isConnect = true;
     }

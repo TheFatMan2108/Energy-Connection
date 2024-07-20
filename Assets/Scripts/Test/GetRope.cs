@@ -21,7 +21,6 @@ public class GetRope : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 player.Connect(gameObject);
-                AudioManager.instance.PlaySFX(0, null);
             }
         }
     }
