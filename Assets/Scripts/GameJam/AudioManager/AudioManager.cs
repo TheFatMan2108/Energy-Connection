@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    public static AudioManager instance {  get; private set; }
 
     [SerializeField] private float sfxMinimumDistance;
     [SerializeField] private AudioSource[] sfx;
@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         if (instance != null)
-            Destroy(instance.gameObject);
+            Destroy(gameObject);
         else
             instance = this;
 
@@ -105,4 +105,8 @@ public class AudioManager : MonoBehaviour
     }
 
     private void AllowSFX() => canPlaySFX = true;
+    public void SetMuteBGM(int index,bool active)
+    {
+        bgm[index].mute = active;
+    }
 }
