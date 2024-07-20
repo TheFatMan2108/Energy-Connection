@@ -11,6 +11,7 @@ public class JumpJamState : AirJamState
     public override void Enter()
     {
         base.Enter();
+        stateTimer = player.rb.velocity.y+0.5f;
         player.rb.velocity = new Vector2(rb.velocity.x, player.jumpForce);
     }
 
@@ -22,6 +23,6 @@ public class JumpJamState : AirJamState
     public override void Update()
     {
         base.Update();
-        if(player.rb.velocity.y==0)stateMachine.ChangeState(player.idleJamState);
+        if(player.rb.velocity.y==0||stateTimer<0)stateMachine.ChangeState(player.idleJamState);
     }
 }

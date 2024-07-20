@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJamState : MonoBehaviour
+public class PlayerJamState 
 {
     protected PlayerJamStateMachine stateMachine;
     protected Player_Jam player;

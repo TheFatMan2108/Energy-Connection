@@ -23,7 +23,6 @@ public class GroundJamState : PlayerJamState
     {
         base.Update();
         xInput = Input.GetAxisRaw("Horizontal");
-        yInput = Input.GetAxisRaw("Vertical");
         if (Input.GetKeyDown(KeyCode.Space))
         {
             stateMachine.ChangeState(player.jumpJamState);
