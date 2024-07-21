@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PowerPoles : MonoBehaviour,IConnection
 {
@@ -34,6 +35,8 @@ public class PowerPoles : MonoBehaviour,IConnection
         StartCoroutine(OnWinnner(2f));
         AudioManager.instance.PlaySFX(100, null);
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = onLight;
+        GameManager.Instance.LevelNext(SceneManager.GetActiveScene().name);
+        GameManager.Instance.Save();
     }
 
     public void Disconnect()

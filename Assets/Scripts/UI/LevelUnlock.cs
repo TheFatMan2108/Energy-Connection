@@ -15,7 +15,7 @@ public class LevelUnlock : MonoBehaviour
             int level = int.Parse(button.transform.gameObject.name);
             button.onClick.AddListener(()=> UI.instance.LoadLevel(level));
         }
-        for (int i = 0; i < GameManager.Instance.level; i++)
+        for (int i = 0; i < GameManager.Instance.GetLevelUnlock(); i++)
         {
             buttonList[i].interactable = true;
         }

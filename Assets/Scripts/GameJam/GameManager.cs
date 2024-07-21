@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public int level = 1;
+    private int LevelUnlock = 1;
     private int onMusic = 0;
     private int onSFX = 0;
     private string KEY_LEVEL = "THISLEVEL";
@@ -15,30 +15,48 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
+        Load();
     }
-    public void LevelNext() => level++;
+    public void LevelNext(string name)
+    {
+        string[] data = name.Split('-');
+        int thisLevel = int.Parse(data[1])+1;
+        if (thisLevel > LevelUnlock)
+        {
+            LevelUnlock = thisLevel;
+        };
+    }
     public void SetMusic(int m)
     {
         onMusic = m;
-        AudioManager.instance.SetMuteBGM(0,onMusic!=0?true:false);
+        AudioManager.instance.SetMuteBGM(0,onMusic!=0);
+        Save();
     }
     public int GetMusic()=>onMusic;
     public void SetSFX(int s)
     {
         onSFX = s;
+        AudioManager.instance.SetMuteMusicAll(onSFX!=0);
+        Save();
     }
     public int GetSFX()=>onSFX;
     public void Save()
     {
-        PlayerPrefs.SetInt(KEY_LEVEL, level);
+        PlayerPrefs.SetInt(KEY_LEVEL, LevelUnlock);
         PlayerPrefs.SetInt(KEY_MUSIC, onMusic);
         PlayerPrefs.SetInt(KEY_SFX, onSFX);
         PlayerPrefs.Save();
     }
     public void Load()
     {
-        level = PlayerPrefs.GetInt(KEY_LEVEL, 0);
+        LevelUnlock = PlayerPrefs.GetInt(KEY_LEVEL, 1);
         onMusic = PlayerPrefs.GetInt(KEY_MUSIC, 0);
         onSFX = PlayerPrefs.GetInt(KEY_SFX, 0);
     }
+    private void OnDestroy()
+    {
+        Save();
+    }
+    public int GetLevelUnlock()=>LevelUnlock;
 }

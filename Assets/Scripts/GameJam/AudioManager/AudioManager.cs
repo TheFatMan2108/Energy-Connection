@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,11 @@ public class AudioManager : MonoBehaviour
 
         Invoke("AllowSFX", 1f);
     }
-
+    private void Start()
+    {
+        SetMuteBGM(0, GameManager.Instance.GetMusic() != 0);
+        SetMuteMusicAll(GameManager.Instance.GetSFX() != 0);
+    }
     private void Update()
     {
         if (!playBgm)
@@ -54,7 +59,7 @@ public class AudioManager : MonoBehaviour
         if (_sfxIndex < sfx.Length)
         {
 
-            sfx[_sfxIndex].pitch = Random.Range(.85f, 1.1f);
+            sfx[_sfxIndex].pitch = UnityEngine.Random.Range(.85f, 1.1f);
             sfx[_sfxIndex].Play();
         }
     }
@@ -84,7 +89,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayRandomBGM()
     {
-        bgmIndex = Random.Range(0, bgm.Length);
+        bgmIndex = UnityEngine.Random.Range(0, bgm.Length);
         PlayBGM(bgmIndex);
     }
 
@@ -108,5 +113,12 @@ public class AudioManager : MonoBehaviour
     public void SetMuteBGM(int index,bool active)
     {
         bgm[index].mute = active;
+    }
+    public void SetMuteMusicAll( bool active)
+    {
+        foreach (var item in sfx)
+        {
+            item.mute = active;
+        }
     }
 }
