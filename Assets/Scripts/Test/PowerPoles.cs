@@ -31,7 +31,7 @@ public class PowerPoles : MonoBehaviour,IConnection
         Joint2D.connectedBody = any.GetComponent<Rigidbody2D>();
         Light2D.SetActive(true);
         // thong bao win o day
-        StartCoroutine(OnWinnner(1));
+        StartCoroutine(OnWinnner(2f));
         AudioManager.instance.PlaySFX(100, null);
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = onLight;
     }
