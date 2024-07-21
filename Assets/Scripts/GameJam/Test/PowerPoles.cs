@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PowerPoles : MonoBehaviour,IConnection
 {
-    [SerializeField] private GameObject UIW;
+    [SerializeField] private GameObject UIW,Light2D;
     private HingeJoint2D Joint2D;
     [SerializeField] private Color onLight, offLight;
     
@@ -29,8 +29,9 @@ public class PowerPoles : MonoBehaviour,IConnection
     {
         Joint2D.enabled = true;
         Joint2D.connectedBody = any.GetComponent<Rigidbody2D>();
+        Light2D.SetActive(true);
         // thong bao win o day
-        StartCoroutine(OnWinnner(1));
+        StartCoroutine(OnWinnner(2f));
         AudioManager.instance.PlaySFX(100, null);
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = onLight;
     }
