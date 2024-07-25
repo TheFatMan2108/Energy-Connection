@@ -29,6 +29,8 @@ public class PowerPoles : MonoBehaviour,IConnection
     public void Connect(GameObject any)
     {
         Joint2D.enabled = true;
+        Joint2D.autoConfigureConnectedAnchor = false;
+        Joint2D.connectedAnchor = Vector2.zero;
         Joint2D.connectedBody = any.GetComponent<Rigidbody2D>();
         Light2D.SetActive(true);
         // thong bao win o day

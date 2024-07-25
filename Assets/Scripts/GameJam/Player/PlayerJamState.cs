@@ -33,7 +33,10 @@ public class PlayerJamState
     public virtual void Update()
     {
         stateTimer -= Time.deltaTime;
+        xInput = Input.GetAxisRaw("Horizontal");
+        player.rb.velocity = new Vector2(player.speed * xInput, player.rb.velocity.y);
         player.anim.SetFloat("Vertical", rb.velocity.y);
+        Flip();
     }
 
     public virtual void Exit()
@@ -44,5 +47,9 @@ public class PlayerJamState
     public virtual void AnimationFinishTrigger()
     {
         triggerCalled = true;
+    }
+    protected void Flip()
+    {
+        if (xInput != 0) player.transform.localScale = new Vector3(xInput, 1, 1);
     }
 }

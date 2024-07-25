@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         int thisLevel = int.Parse(data[1])+1;
         if (thisLevel > LevelUnlock)
         {
+            if(thisLevel>=5)return;
             LevelUnlock = thisLevel;
         };
     }
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     public void Load()
     {
         LevelUnlock = PlayerPrefs.GetInt(KEY_LEVEL, 1);
+        if (LevelUnlock >= 5) LevelUnlock = 5;
         onMusic = PlayerPrefs.GetInt(KEY_MUSIC, 0);
         onSFX = PlayerPrefs.GetInt(KEY_SFX, 0);
     }

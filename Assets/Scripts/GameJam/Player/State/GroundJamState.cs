@@ -22,16 +22,11 @@ public class GroundJamState : PlayerJamState
     public override void Update()
     {
         base.Update();
-        xInput = Input.GetAxisRaw("Horizontal");
         if (Input.GetKeyDown(KeyCode.Space))
         {
             stateMachine.ChangeState(player.jumpJamState);
         }
-        Flip();
     }
 
-    private void Flip()
-    {
-        if (xInput != 0) player.transform.localScale = new Vector3(xInput, 1, 1);
-    }
+   
 }
